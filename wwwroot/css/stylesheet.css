@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+header {
+    width: 100vw;
+    height: 20vh;
+    background-image: url(../images/booksheader.jpg);
+    background-position: center;
+    background-size: cover;
+    position:absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid #333;
+    z-index: -1;
+}
+
+footer {
+    width: 110vw;
+    margin-left: -5vw;
+    height: 5vh;
+    position:relative;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    color: black;
+    border-top: 1px solid #333;
+}
+
+
+/*-----------------------------------------------------------------------------------*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 2vw;
+    margin-top: 2vh;
+}
+.dropdown .dropbt {
+    font-size: 150%; 
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: #333;
+    font-family: inherit;
+    cursor: pointer;
+    border: 1px solid white;
+    
+}
+.dropdownMeny {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdownMeny a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.dropdownMeny a:hover {
+    background-color: #ddd;
+}
+.dropdown:hover .dropdownMeny {
+    display: block;
+}
+
+/*----------------------------------------------------------------------------------------*/
+
+.content {
+    margin-top: 20vh;
+    min-height: 70vh;
+    margin-bottom: 6vh;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}

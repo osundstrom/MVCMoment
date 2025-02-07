@@ -1,0 +1,20 @@
+@{
+    ViewData["Titel"] = "Lästa";
+}
+
+<div class="content">
+    <h1>Lästa</h1>
+
+<div>
+    
+</div>
+<ul>
+    @foreach (var book in Model)
+    {
+        <li>
+            @book.Title by @book.Author
+        </li>
+    }
+</ul>
+
+</div>

@@ -1,0 +1,37 @@
+@model List<MVCMoment.Models.Book>
+
+@{
+    ViewData["Titel"] = "Böcker";
+}
+
+<div class="content">
+    <h1>@ViewData["Titel"]</h1>
+
+<div>
+    <h3>Alla böcker</h3>
+
+    @if (Model == null || !Model.Any())
+        {
+            <p>Inga böcker i listan.</p>
+        }
+        else{
+            <ul>
+        @foreach (var book in Model)
+        {
+            <li>
+                <p>@book.Title</p>
+                <p>@book.Author</p>
+            <form method="post" action="@Url.Action("AddRead", "Books")">
+                <input type="hidden" name="Title" value="@book.Title"/>
+                <input type="hidden" name="Author" value="@book.Author"/>
+                <button type="submit">Läst</button>
+            </form>
+                
+            </li>
+        }
+        </ul>
+        }
+    
+    
+</div>
+</div>

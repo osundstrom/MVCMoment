@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/stylesheet.css">
+    <script src="https://kit.fontawesome.com/2b12854771.js" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewData["Title"]</title>
+</head>
+
+
+
+<body class="fullBody">
+        <header>
+
+        <nav>
+            <div class="dropdown">
+        <button class="dropbt"><i class="fa-solid fa-bars"></i></button>
+        <div class="dropdownMeny">
+            <a asp-controller="Home" asp-action="Index"> Startsida</a>
+            <a asp-controller="Books" asp-action="Books"> Books</a>
+            <a aps-controller="Books" asp-action="Read">Lästa</a>
+        </div>
+        </div>
+        </nav>
+
+        </header>
+        
+
+
+       <main>
+        @RenderBody()
+       </main>
+
+
+
+            <footer class="footer">
+                <p>Oskar Sundström</p>
+            </footer>
+
+    
+</body>
+
+
+</html>

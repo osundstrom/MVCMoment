@@ -1,3 +1,5 @@
+@model List<MVCMoment.Models.Book>
+
 @{
     ViewData["Titel"] = "Lästa";
 }
@@ -5,16 +7,23 @@
 <div class="content">
     <h1>Lästa</h1>
 
-<div>
+<div class="readDiv">
     
-</div>
-<ul>
-    @foreach (var book in Model)
-    {
+
+
+    @if (Model == null || !Model.Any()){
+            <p>Inga lästa böcker.</p>
+        }
+        
+        else{
+            <ul>
+    @foreach (var book in Model){
         <li>
-            @book.Title by @book.Author
+            @book.Title av @book.Author
         </li>
     }
-</ul>
+    </ul>
+    }
 
+</div>
 </div>

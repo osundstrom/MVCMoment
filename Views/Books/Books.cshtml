@@ -15,18 +15,19 @@
             <p>Inga böcker i listan.</p>
         }
         else{
-            <ul>
+            <ul class="allBooks">
         @foreach (var book in Model)
         {
-            <li>
-                <p>@book.Title</p>
+            <li id="@book.Id">
+                <p><b>@book.Title</b></p>
                 <p>@book.Author</p>
             <form method="post" action="@Url.Action("AddRead", "Books")">
                 <input type="hidden" name="Title" value="@book.Title"/>
                 <input type="hidden" name="Author" value="@book.Author"/>
-                <button type="submit">Läst</button>
-            </form>
-                
+                <button type="submit">Färdig</button>
+                  
+                </form>
+               <button class="buttonActive" onclick="activeRead('@book.Id')">Markera</button>           
             </li>
         }
         </ul>

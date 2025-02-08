@@ -7,7 +7,6 @@ namespace MVCMoment.Controllers
 {
     public class BooksController : Controller
     {
-        // GET: BooksController
         public ActionResult Books()
         {
 
@@ -24,22 +23,6 @@ namespace MVCMoment.Controllers
         }
 
         
-        public ActionResult AddRead(Book book)
-        {
-
-            var jsonAdd = System.IO.File.ReadAllText("wwwroot/data/readBooks.json");
-            var ReadObj = JsonConvert.DeserializeObject<List<Book>>(jsonAdd);
-
-
-            ReadObj.Add(book);
-
-            var updatedJson = JsonConvert.SerializeObject(ReadObj);
-            System.IO.File.WriteAllText("wwwroot/data/readBooks.json", updatedJson);
-
-             return RedirectToAction("Read");
-        }
-
-
           public ActionResult Read()
         {
 
@@ -53,6 +36,32 @@ namespace MVCMoment.Controllers
 
             return View(ReadObj);
         }
+
+        
+        public ActionResult AddRead(Book onebook)
+        {
+
+            var jsonAll = System.IO.File.ReadAllText("wwwroot/data/allBooks.json");
+            var AllObj = JsonConvert.DeserializeObject<List<Book>>(jsonAll) ?? new List<Book>();
+
+            var jsonAdd = System.IO.File.ReadAllText("wwwroot/data/readBooks.json");
+            var ReadObj = JsonConvert.DeserializeObject<List<Book>>(jsonAdd) ?? new List<Book>();
+
+
+            ReadObj.Add(onebook);
+
+            AllObj.RemoveAll(b => b.Title == onebook.Title);
+
+            var updatedRead = JsonConvert.SerializeObject(ReadObj);
+            var updatedAll = JsonConvert.SerializeObject(AllObj);
+
+            System.IO.File.WriteAllText("wwwroot/data/allBooks.json", updatedAll);
+            System.IO.File.WriteAllText("wwwroot/data/readBooks.json", updatedRead);
+
+             return RedirectToAction("Read", "Books");
+        }
+
+
 
 
     }

@@ -80,3 +80,72 @@ footer {
     display: flex;
     flex-direction: column;
 }
+
+/*----------------------------------------------------------------------------------------*/
+h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.allBooks li{
+    background-color: rgb(224, 224, 224);
+    list-style-type: none;
+    margin: 1vh;
+    padding: 1em;
+    border-radius: 10px;
+    border: 1px solid black;
+    min-width: 25vw;
+    max-width: 25vw;
+    display: block;
+    flex-direction: column;
+}
+
+.allBooks ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.allBooks button{
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding:  0.5em;
+}
+
+.allBooks button:hover{
+    background-color: #b3ff00;
+    text-decoration: underline;
+}
+
+.buttonActive{
+    display: flex;
+    flex-direction: row;
+    right: 0;
+}
+
+
+
+.allBooks{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1em;
+    justify-items: center;
+    align-items: center;
+}
+
+/*----------------------------------------------------------------------------------------*/
+
+
+.readDiv li{
+    background-color: rgb(224, 224, 224);
+    list-style-type: none;
+    margin: 1vh;
+    padding: 1em;
+    border-radius: 10px;
+    border: 1px solid black;
+    min-width: 18vw;
+    display: block;
+    flex-direction: column;
+}

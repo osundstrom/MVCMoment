@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     overflow-x: hidden;
+    width: 100%;
 }
 
 header {
@@ -17,7 +18,7 @@ header {
 }
 
 footer {
-    width: 110vw;
+    width: 110%;
     margin-left: -5vw;
     height: 5vh;
     position:relative;
@@ -73,79 +74,153 @@ footer {
 /*----------------------------------------------------------------------------------------*/
 
 .content {
-    margin-top: 20vh;
+    
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 22vh;
     min-height: 70vh;
     margin-bottom: 6vh;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 /*----------------------------------------------------------------------------------------*/
 h3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+}
+
+.allBooks{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1em;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.textCenter{
+    text-align: center;
+    word-wrap:normal;
+    width: 80%;
+    margin-left: 10%;
 }
 
 .allBooks li{
     background-color: rgb(224, 224, 224);
     list-style-type: none;
-    margin: 1vh;
     padding: 1em;
+    margin: 0 auto;
     border-radius: 10px;
     border: 1px solid black;
-    min-width: 25vw;
+    width: 100%;
     max-width: 25vw;
-    display: block;
-    flex-direction: column;
-}
-
-.allBooks ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+    text-align: center;
 }
 
 .allBooks button{
     background-color: #ffffff;
     border-radius: 10px;
     padding:  0.5em;
+    margin-right: 1em;
 }
 
-.allBooks button:hover{
+.buttonActive:hover{
+    background-color: orange;
+}
+
+
+.buttonSubmit:hover{
     background-color: #b3ff00;
     text-decoration: underline;
 }
 
 .buttonActive{
-    display: flex;
-    flex-direction: row;
-    right: 0;
+    margin-right: 1vw;
 }
 
 
 
-.allBooks{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 1em;
-    justify-items: center;
+
+.flexButtons{
+    display: flex;
+    justify-content: center;
     align-items: center;
+    margin-top: 1em;
+}
+
+
+
+@media (max-width: 800px) {
+    .allBooks {
+        grid-template-columns: 1fr;  
+        width: 100%; 
+        margin: 0 auto; 
+        padding: 0%;
+    }
+
+    .allBooks li{
+        max-width: 80%;
+        min-width: 80%;
+        margin-top: 1em auto;
+    }
 }
 
 /*----------------------------------------------------------------------------------------*/
 
 
 .readDiv li{
-    background-color: rgb(224, 224, 224);
+    background-color: rgb(211, 255, 168);
     list-style-type: none;
-    margin: 1vh;
     padding: 1em;
     border-radius: 10px;
     border: 1px solid black;
-    min-width: 18vw;
-    display: block;
+    min-width: 40vw;
+    max-width: 40vw;
+    display: flex;
     flex-direction: column;
+    text-align: center;
+    margin-top: 1em;
+}
+
+.readDiv ul {
+    padding: 0;
+    display: flex;
+    justify-content: center; 
+    list-style: none; 
+    flex-direction: column;
+    align-items: center;
+}
+
+.readDiv{
+    width: 100%;
+}
+
+
+@media (max-width: 800px) {
+    
+    .readDiv li{
+        max-width: 80%;
+        min-width: 80%;
+        margin-top: 1em auto;
+    }
+}
+
+
+/*----------------------------------------------------------------------------------------*/
+
+
+
+.popup{
+    position: relative;
+    width: fit-content;
+    text-align: center;
+    margin: 0 auto;
+    padding: 2%;
+    margin-bottom: 1em;
+    background-color: #b3ff00;
+    border: 1px solid black;
+    
 }

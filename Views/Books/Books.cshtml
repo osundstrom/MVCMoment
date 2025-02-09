@@ -4,11 +4,19 @@
     ViewData["Titel"] = "Böcker";
 }
 
-<div class="content">
+<div class="content" onload="markedBooks()">
     <h1>@ViewData["Titel"]</h1>
 
+
+     @if (ViewBag.Message != null)
+    {
+        <div class="popup">
+            @ViewBag.Message
+        </div>
+    }
+
 <div>
-    <h3>Alla böcker</h3>
+   
 
     @if (Model == null || !Model.Any())
         {
@@ -21,18 +29,19 @@
             <li id="@book.Id">
                 <p><b>@book.Title</b></p>
                 <p>@book.Author</p>
+                <div class="flexButtons">
             <form method="post" action="@Url.Action("AddRead", "Books")">
                 <input type="hidden" name="Title" value="@book.Title"/>
                 <input type="hidden" name="Author" value="@book.Author"/>
-                <button type="submit">Färdig</button>
+                <button class="buttonSubmit" type="submit" >Färdig</button>
                   
                 </form>
-               <button class="buttonActive" onclick="activeRead('@book.Id')">Markera</button>           
+               <button class="buttonActive" onclick="activeRead('@book.Id')">Markera</button> 
+               </div>          
             </li>
         }
         </ul>
         }
-    
     
 </div>
 </div>

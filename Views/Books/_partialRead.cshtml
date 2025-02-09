@@ -1,0 +1,20 @@
+@model List<MVCMoment.Models.Book>
+
+<div class="readDiv">
+
+    @if (Model == null || !Model.Any()){
+            <p>Inga lästa böcker.</p>
+        }
+        
+        else{
+            <ul>
+    @foreach (var book in Model){
+        <li>
+           <b>@book.Title</b> 
+           @book.Author
+        </li>
+    }
+    </ul>
+    }
+
+</div>

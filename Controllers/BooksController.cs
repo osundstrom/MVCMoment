@@ -17,6 +17,8 @@ namespace MVCMoment.Controllers
             
 
             var BooksObj = JsonConvert.DeserializeObject<List<Book>>(jsonStr);
+            
+           
 
 
             return View(BooksObj);
@@ -50,6 +52,8 @@ namespace MVCMoment.Controllers
 
             ReadObj.Add(onebook);
 
+            
+
             AllObj.RemoveAll(b => b.Title == onebook.Title);
 
             var updatedRead = JsonConvert.SerializeObject(ReadObj);
@@ -57,8 +61,10 @@ namespace MVCMoment.Controllers
 
             System.IO.File.WriteAllText("wwwroot/data/allBooks.json", updatedAll);
             System.IO.File.WriteAllText("wwwroot/data/readBooks.json", updatedRead);
+            
+            ViewBag.Message = $" {onebook.Title} har lagts till i lästa böcker";
 
-             return RedirectToAction("Read", "Books");
+             return View("Books", AllObj);
         }
 
 

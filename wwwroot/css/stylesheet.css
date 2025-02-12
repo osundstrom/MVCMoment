@@ -224,3 +224,8 @@ h1{
     border: 1px solid black;
     
 }
+
+#pNoRead{
+    text-align: center;
+    width: 100vw;
+}

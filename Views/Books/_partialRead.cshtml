@@ -1,13 +1,14 @@
 @model List<MVCMoment.Models.Book>
 
 <div class="readDiv">
-
+    <!-- om tom eller null -->
     @if (Model == null || !Model.Any()){
             <p>Inga lästa böcker.</p>
         }
         
         else{
             <ul>
+    <!-- Skriver ut respektive boks titel och författare -->
     @foreach (var book in Model){
         <li>
            <b>@book.Title</b> 

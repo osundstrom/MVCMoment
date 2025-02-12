@@ -5,9 +5,10 @@
 }
 
 <div class="content" onload="markedBooks()">
+        <!-- Sätter titel -->
     <h1>@ViewData["Titel"]</h1>
 
-
+        <!-- Meddelande från BooksController -->
      @if (ViewBag.Message != null)
     {
         <div class="popup">
@@ -17,13 +18,15 @@
 
 <div>
    
-
+        <!-- om tom eller null -->
     @if (Model == null || !Model.Any())
         {
             <p>Inga böcker i listan.</p>
         }
         else{
             <ul class="allBooks">
+
+        <!-- Skriver ut varje book i allBooks,-- Sätter li elemntets id till bookens id. -->
         @foreach (var book in Model)
         {
             <li id="@book.Id">
@@ -36,6 +39,7 @@
                 <button class="buttonSubmit" type="submit" >Färdig</button>
                   
                 </form>
+                    <!--vid click körs activeRead-->
                <button class="buttonActive" onclick="activeRead('@book.Id')">Markera</button> 
                </div>          
             </li>
